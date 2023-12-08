@@ -8,7 +8,7 @@ import { GifsService } from '../../services/gifs.service';
     <input type="text"
     class="form-control"
     placeholder="Buscar Gifs..."
-    (keyup.enter)="searchTag()"
+    (keydown.enter)="searchTag()"
     #txtTagInput
     >
     `
@@ -25,7 +25,7 @@ export class SearchBoxComponent {
   searchTag(){
     const newTag =this.tagInput.nativeElement.value
     this.gifsService.searchTag(newTag)
-   
+
     this.tagInput.nativeElement.value=''
   }
 }
