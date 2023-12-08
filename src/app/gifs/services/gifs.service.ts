@@ -41,8 +41,8 @@ export class GifsService {
 
   private loadLocalStorage():void{
     if (!localStorage.getItem('history')) return
-    
-   this._tagsHistory =JSON.parse(localStorage.getItem('history')!) 
+
+   this._tagsHistory =JSON.parse(localStorage.getItem('history')!)
 
    if (this._tagsHistory.length===0)return
 
@@ -50,7 +50,7 @@ export class GifsService {
   }
 
   async searchTag(tag: string):Promise<void> {
-    if (tag.length===0) return  
+    if (tag.length===0) return
     this.organizeHistory(tag)
 
     const params=new HttpParams()
@@ -62,6 +62,6 @@ export class GifsService {
       .subscribe(resp=>{
         this.gifList=resp.data
       })
- 
+
   }
 }
